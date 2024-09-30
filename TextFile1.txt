@@ -1,0 +1,54 @@
+1. Clase Pelicula
+Propósito: Representa una película en el video club.
+Atributos:
+Titulo: El título de la película.
+Actor_Principal: El actor principal de la película.
+Director: El director de la película.
+Genero: El género de la película.
+Duracion: La duración de la película en minutos.
+CantidadStock: La cantidad disponible en stock.
+CantidadAlquilada: La cantidad de películas alquiladas.
+PrecioAlquiler: El precio del alquiler de la película.
+FechaIngreso: La fecha en que se ingresó la película al sistema.
+Constructores: Permite crear una instancia de Pelicula con todos los atributos necesarios.
+
+2. Clase Serie
+Propósito: Hereda de Pelicula y representa una serie en el video club.
+Atributos:
+NumeroEpisodios: Número total de episodios en la serie.
+Constructor: Permite crear una instancia de Serie con los atributos de Pelicula más NumeroEpisodios.
+
+3. Interfaz IVideoClubManager
+Propósito: Define las operaciones que debe implementar cualquier gestor de video club.
+Métodos:
+AgregarPelicula(Pelicula pelicula): Agrega una película al sistema.
+ListarPeliculas(): Lista todas las películas disponibles.
+AlquilarPelicula(string titulo): Alquila una película según su título.
+DevolverPelicula(string titulo): Devuelve una película según su título.
+AgregarSerie(Serie serie): Agrega una serie al sistema.
+ListarSeries(): Lista todas las series disponibles.
+AlquilarSerie(string titulo): Alquila una serie según su título.
+DevolverSerie(string titulo): Devuelve una serie según su título.
+
+4. Clase VideoClubManager
+Propósito: Implementa la interfaz IVideoClubManager y gestiona películas y series en el video club.
+Atributos:
+peliculas: Lista que contiene las películas disponibles.
+series: Lista que contiene las series disponibles.
+Métodos:
+AgregarPelicula(Pelicula pelicula): Agrega una película a la lista.
+AgregarSerie(Serie serie): Agrega una serie a la lista.
+ListarPeliculas(): Muestra todas las películas en el video club.
+ListarSeries(): Muestra todas las series en el video club.
+AlquilarPelicula(string titulo): Alquila una película.
+AlquilarSerie(string titulo): Alquila una serie.
+DevolverPelicula(string titulo): Devuelve una película.
+DevolverSerie(string titulo): Devuelve una serie.
+
+5. Clase Program
+Propósito: Punto de entrada de la aplicación, que proporciona un menú interactivo para el usuario.
+Métodos:
+Main(string[] args): Método principal que ejecuta la aplicación.
+AgregarNuevaPelicula(VideoClubManager gestor): Permite al usuario agregar una nueva película al video club.
+AgregarNuevaSerie(VideoClubManager gestor): Permite al usuario agregar una nueva serie al video club.
+Interacción: Proporciona un menú para listar, alquilar y devolver películas y series, así como para agregar nuevos elementos al video club.
