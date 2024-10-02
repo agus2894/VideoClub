@@ -6,12 +6,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        VideoClubManager gestor = new VideoClubManager(); // Crear una instancia del VideoClubManager (nuestra implementación)
+        VideoClubManager gestor = new VideoClubManager();
 
-        bool salir = false;                 // Menú interactivo para el usuario
+        // Cargamos los datos al iniciar el programa
+        gestor.CargarDatosDesdeArchivo();
+
+        // Menú interactivo para el usuario
+        bool salir = false;
         while (!salir)
         {
-            Console.WriteLine("\n===== VIDEOCLUB El CUDI MENU =====");
+            Console.WriteLine("\n===== VIDEO CLUB MENU =====");
             Console.WriteLine("1. Listar Películas");
             Console.WriteLine("2. Listar Series");
             Console.WriteLine("3. Alquilar Película");
@@ -20,7 +24,7 @@ class Program
             Console.WriteLine("6. Devolver Serie");
             Console.WriteLine("7. Agregar Película");
             Console.WriteLine("8. Agregar Serie");
-            Console.WriteLine("9. Salir");
+            Console.WriteLine("9. Guardar y Salir");
             Console.Write("Elige una opción: ");
 
             string opcion = Console.ReadLine();
@@ -59,7 +63,9 @@ class Program
                     AgregarNuevaSerie(gestor);
                     break;
                 case "9":
-                    Console.WriteLine("Gracias por Visitar nuestro VideoClub El CUDI. ¡Vuelva Pronto!");
+                    // Guardamos los datos antes de salir
+                    gestor.GuardarDatosEnArchivo();
+                    Console.WriteLine("Datos guardados. Gracias por usar el Video Club. ¡Hasta luego!");
                     salir = true;
                     break;
                 default:
@@ -90,6 +96,7 @@ class Program
 
         Pelicula nuevaPelicula = new Pelicula(titulo, actor, director, genero, duracion, cantidadStock, precioAlquiler, fechaIngreso);
         gestor.AgregarPelicula(nuevaPelicula);
+        gestor.GuardarDatosEnArchivo();  // Guardamos los cambios inmediatamente
     }
 
     static void AgregarNuevaSerie(VideoClubManager gestor)
@@ -115,8 +122,6 @@ class Program
 
         Serie nuevaSerie = new Serie(titulo, actor, director, genero, duracion, cantidadStock, precioAlquiler, fechaIngreso, numeroEpisodios);
         gestor.AgregarSerie(nuevaSerie);
+        gestor.GuardarDatosEnArchivo();  // Guardamos los cambios inmediatamente
     }
 }
-//El Program.cs es la clase principal que ejecuta el flujo de tu aplicación,
-//y en este caso, el objetivo es crear instancias de películas,
-//agregar esas películas a un gestor y luego listar el catálogo de películas.
