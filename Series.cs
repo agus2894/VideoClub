@@ -1,17 +1,28 @@
 ﻿using System;
-using VideoClubApp;
-
-public class Serie : Pelicula                    //Practicamos Herencia entre Pelicula y Series
+public class Serie
 {
-    public int NumeroEpisodios { get; set; }    //Lo que suma Series
+    public string Titulo { get; set; }
+    public string ActorPrincipal { get; set; }
+    public string Director { get; set; }
+    public string Genero { get; set; }
+    public int Duracion { get; set; }
+    public int CantidadStock { get; set; }
+    public decimal PrecioAlquiler { get; set; }
+    public DateTime FechaIngreso { get; set; }
+    public int NumeroEpisodios { get; set; }
 
-                                                //Lo que tenia Peliculas
-    public Serie(string titulo, string actor, string director, string genero, int duracion, int cantidadStock, decimal precioAlquiler, DateTime fechaIngreso, int numeroEpisodios)
-        : base(titulo, actor, director, genero, duracion, cantidadStock, precioAlquiler, fechaIngreso)
+    public Serie() { }
+
+    public Serie(string titulo, string actorPrincipal, string director, string genero, int duracion, int cantidadStock, decimal precioAlquiler, DateTime fechaIngreso, int numeroEpisodios)
     {
+        Titulo = titulo;
+        ActorPrincipal = actorPrincipal;
+        Director = director;
+        Genero = genero;
+        Duracion = duracion;
+        CantidadStock = cantidadStock;
+        PrecioAlquiler = precioAlquiler;
+        FechaIngreso = fechaIngreso;
         NumeroEpisodios = numeroEpisodios;
     }
 }
-//La clase Serie agrega el comportamiento específico de las series al sistema de videoclub.
-//A través de la herencia, reaprovecha toda la funcionalidad de Pelicula (como título, director, etc.)
-//y añade su propia característica (número de episodios)

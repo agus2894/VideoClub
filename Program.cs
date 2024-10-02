@@ -1,5 +1,4 @@
 ﻿using System;
-using VideoClubApp;
 using VideoClubApp.Implementaciones;
 
 class Program
@@ -56,14 +55,13 @@ class Program
                     tituloSerie = Console.ReadLine();
                     gestor.DevolverSerie(tituloSerie);
                     break;
-                case "7": // Agregar Película
+                case "7":
                     AgregarNuevaPelicula(gestor);
                     break;
-                case "8": // Agregar Serie
+                case "8":
                     AgregarNuevaSerie(gestor);
                     break;
                 case "9":
-                    // Guardamos los datos antes de salir
                     gestor.GuardarDatosEnArchivo();
                     Console.WriteLine("Datos guardados. Gracias por usar el Video Club. ¡Hasta luego!");
                     salir = true;
@@ -96,7 +94,6 @@ class Program
 
         Pelicula nuevaPelicula = new Pelicula(titulo, actor, director, genero, duracion, cantidadStock, precioAlquiler, fechaIngreso);
         gestor.AgregarPelicula(nuevaPelicula);
-        gestor.GuardarDatosEnArchivo();  // Guardamos los cambios inmediatamente
     }
 
     static void AgregarNuevaSerie(VideoClubManager gestor)
@@ -110,18 +107,17 @@ class Program
         string director = Console.ReadLine();
         Console.Write("Género: ");
         string genero = Console.ReadLine();
-        Console.Write("Duración de cada episodio (en minutos): ");
+        Console.Write("Duración (en minutos): ");
         int duracion = int.Parse(Console.ReadLine());
         Console.Write("Cantidad en stock: ");
         int cantidadStock = int.Parse(Console.ReadLine());
         Console.Write("Precio de alquiler: ");
         decimal precioAlquiler = decimal.Parse(Console.ReadLine());
         Console.Write("Número de episodios: ");
-        int numeroEpisodios = int.Parse(Console.ReadLine());
+        int numEpisodios = int.Parse(Console.ReadLine());
         DateTime fechaIngreso = DateTime.Now;
 
-        Serie nuevaSerie = new Serie(titulo, actor, director, genero, duracion, cantidadStock, precioAlquiler, fechaIngreso, numeroEpisodios);
+        Serie nuevaSerie = new Serie(titulo, actor, director, genero, duracion, cantidadStock, precioAlquiler, fechaIngreso, numEpisodios);
         gestor.AgregarSerie(nuevaSerie);
-        gestor.GuardarDatosEnArchivo();  // Guardamos los cambios inmediatamente
     }
 }

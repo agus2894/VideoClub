@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Text.Json;
 using System.IO;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 
 namespace VideoClubApp.Implementaciones
 {
@@ -10,8 +10,7 @@ namespace VideoClubApp.Implementaciones
     {
         private List<Pelicula> peliculas;
         private List<Serie> series;
-        private const string archivoPeliculas = "peliculas.json";
-        private const string archivoSeries = "series.json";
+        private const string archivoJson = "videoclub.json";
 
         public VideoClubManager()
         {
@@ -19,136 +18,109 @@ namespace VideoClubApp.Implementaciones
             series = new List<Serie>();
         }
 
-        // Método para agregar una película
+        // Métodos para agregar películas y series
         public void AgregarPelicula(Pelicula pelicula)
         {
             peliculas.Add(pelicula);
         }
 
-        // Método para agregar una serie
         public void AgregarSerie(Serie serie)
         {
             series.Add(serie);
         }
 
-        // Método para listar las películas
+        // Métodos para listar
         public void ListarPeliculas()
         {
-            Console.WriteLine("\n===== Películas disponibles =====");
+            Console.WriteLine("\nPelículas en stock:");
             foreach (var pelicula in peliculas)
             {
-                Console.WriteLine($"{pelicula.Titulo} - Dirigida por {pelicula.Director} - Protagonizada por {pelicula.Actor} - Género: {pelicula.Genero}");
+                Console.WriteLine($"- {pelicula.Titulo} ({pelicula.CantidadStock} en stock)");
             }
         }
 
-        // Método para listar las series
         public void ListarSeries()
         {
-            Console.WriteLine("\n===== Series disponibles =====");
+            Console.WriteLine("\nSeries en stock:");
             foreach (var serie in series)
             {
-                Console.WriteLine($"{serie.Titulo} - Dirigida por {serie.Director} - Protagonizada por {serie.Actor} - Género: {serie.Genero} - Episodios: {serie.NumeroEpisodios}");
+                Console.WriteLine($"- {serie.Titulo} ({serie.CantidadStock} en stock)");
             }
         }
 
-        // Método para alquilar una película
+        // Métodos para alquilar y devolver
         public void AlquilarPelicula(string titulo)
         {
-            var pelicula = peliculas.FirstOrDefault(p => p.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase));
-            if (pelicula != null)
+            var pelicula = peliculas.FirstOrDefault(p => p.Titulo == titulo);
+            if (pelicula != null && pelicula.CantidadStock > 0)
             {
-                if (pelicula.CantidadStock > 0)
-                {
-                    pelicula.CantidadStock--;
-                    Console.WriteLine($"Has alquilado: {pelicula.Titulo}");
-                }
-                else
-                {
-                    Console.WriteLine("Lo sentimos, no hay stock disponible para esta película.");
-                }
+                pelicula.CantidadStock--;
+                Console.WriteLine($"Has alquilado {pelicula.Titulo}");
             }
             else
             {
-                Console.WriteLine("Película no encontrada.");
+                Console.WriteLine("Película no disponible.");
             }
         }
 
-        // Método para alquilar una serie
         public void AlquilarSerie(string titulo)
         {
-            var serie = series.FirstOrDefault(s => s.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase));
-            if (serie != null)
+            var serie = series.FirstOrDefault(s => s.Titulo == titulo);
+            if (serie != null && serie.CantidadStock > 0)
             {
-                if (serie.CantidadStock > 0)
-                {
-                    serie.CantidadStock--;
-                    Console.WriteLine($"Has alquilado: {serie.Titulo}");
-                }
-                else
-                {
-                    Console.WriteLine("Lo sentimos, no hay stock disponible para esta serie.");
-                }
+                serie.CantidadStock--;
+                Console.WriteLine($"Has alquilado {serie.Titulo}");
             }
             else
             {
-                Console.WriteLine("Serie no encontrada.");
+                Console.WriteLine("Serie no disponible.");
             }
         }
 
-        // Método para devolver una película
         public void DevolverPelicula(string titulo)
         {
-            var pelicula = peliculas.FirstOrDefault(p => p.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase));
+            var pelicula = peliculas.FirstOrDefault(p => p.Titulo == titulo);
             if (pelicula != null)
             {
                 pelicula.CantidadStock++;
-                Console.WriteLine($"Has devuelto: {pelicula.Titulo}");
-            }
-            else
-            {
-                Console.WriteLine("Película no encontrada.");
+                Console.WriteLine($"Has devuelto {pelicula.Titulo}");
             }
         }
 
-        // Método para devolver una serie
         public void DevolverSerie(string titulo)
         {
-            var serie = series.FirstOrDefault(s => s.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase));
+            var serie = series.FirstOrDefault(s => s.Titulo == titulo);
             if (serie != null)
             {
                 serie.CantidadStock++;
-                Console.WriteLine($"Has devuelto: {serie.Titulo}");
-            }
-            else
-            {
-                Console.WriteLine("Serie no encontrada.");
+                Console.WriteLine($"Has devuelto {serie.Titulo}");
             }
         }
 
-        // Cargar los datos desde el archivo
-        public void CargarDatosDesdeArchivo()
-        {
-            if (File.Exists(archivoPeliculas))
-            {
-                var jsonPeliculas = File.ReadAllText(archivoPeliculas);
-                peliculas = JsonSerializer.Deserialize<List<Pelicula>>(jsonPeliculas);
-            }
-
-            if (File.Exists(archivoSeries))
-            {
-                var jsonSeries = File.ReadAllText(archivoSeries);
-                series = JsonSerializer.Deserialize<List<Serie>>(jsonSeries);
-            }
-        }
-
-        // Guardar los datos en el archivo
+        // Guardar datos en archivo JSON
         public void GuardarDatosEnArchivo()
         {
-            var jsonPeliculas = JsonSerializer.Serialize(peliculas);
-            File.WriteAllText(archivoPeliculas, jsonPeliculas);
+            var datos = new
+            {
+                peliculas = peliculas,
+                series = series
+            };
 
-            var jsonSeries = JsonSerializer.Serialize(series);
-            File.WriteAllText(archivoSeries, jsonSeries);
+            string jsonString = JsonSerializer.Serialize(datos, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(archivoJson, jsonString);
+        }
+
+        // Cargar datos desde archivo JSON
+        public void CargarDatosDesdeArchivo()
+        {
+            if (File.Exists(archivoJson))
+            {
+                string jsonString = File.ReadAllText(archivoJson);
+                var datos = JsonSerializer.Deserialize<Dictionary<string, List<dynamic>>>(jsonString);
+
+                peliculas = JsonSerializer.Deserialize<List<Pelicula>>(JsonSerializer.Serialize(datos["peliculas"]));
+                series = JsonSerializer.Deserialize<List<Serie>>(JsonSerializer.Serialize(datos["series"]));
+            }
         }
     }
 }
