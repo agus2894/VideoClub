@@ -1,7 +1,7 @@
 ﻿using System;
 public class Pelicula
 {
-    public string Titulo { get; set; }
+    public string Titulo { get; set; }      //Usamos get y set para encapsular la informacion que se almacena
     public string ActorPrincipal { get; set; }
     public string Director { get; set; }
     public string Genero { get; set; }
@@ -24,3 +24,5 @@ public class Pelicula
         FechaIngreso = fechaIngreso;
     }
 }
+//Aca tenemos el Contructor principal de nuestro Objeto pelicula
+//De aca sale la herencia con Serie. 

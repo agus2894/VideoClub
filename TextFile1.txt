@@ -44,6 +44,8 @@ AlquilarPelicula(string titulo): Alquila una película.
 AlquilarSerie(string titulo): Alquila una serie.
 DevolverPelicula(string titulo): Devuelve una película.
 DevolverSerie(string titulo): Devuelve una serie.
+Json Concepto nuevo para que el usuario tenga una base antes de iniciar el programa
+Esto va a permitir que al iniciar ya tenga informacion
 
 5. Clase Program
 Propósito: Punto de entrada de la aplicación, que proporciona un menú interactivo para el usuario.

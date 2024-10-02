@@ -7,14 +7,14 @@ class Program
     {
         VideoClubManager gestor = new VideoClubManager();
 
-        // Cargamos los datos al iniciar el programa
-        gestor.CargarDatosDesdeArchivo();
+        gestor.CargarDatosDesdeArchivo();               // Cargamos los datos al iniciar el programa
 
         // Menú interactivo para el usuario
+
         bool salir = false;
         while (!salir)
         {
-            Console.WriteLine("\n===== VIDEO CLUB MENU =====");
+            Console.WriteLine("\n===== Bienvenido al VideoCLub EL CUDI =====");
             Console.WriteLine("1. Listar Películas");
             Console.WriteLine("2. Listar Series");
             Console.WriteLine("3. Alquilar Película");
@@ -36,22 +36,22 @@ class Program
                     gestor.ListarSeries();
                     break;
                 case "3":
-                    Console.Write("Introduce el título de la película que quieres alquilar: ");
+                    Console.Write("Introduce el título de la película que queres alquilar: ");
                     string tituloPelicula = Console.ReadLine();
                     gestor.AlquilarPelicula(tituloPelicula);
                     break;
                 case "4":
-                    Console.Write("Introduce el título de la serie que quieres alquilar: ");
+                    Console.Write("Introduce el título de la serie que queres alquilar: ");
                     string tituloSerie = Console.ReadLine();
                     gestor.AlquilarSerie(tituloSerie);
                     break;
                 case "5":
-                    Console.Write("Introduce el título de la película que quieres devolver: ");
+                    Console.Write("Introduce el título de la película que queres devolver: ");
                     tituloPelicula = Console.ReadLine();
                     gestor.DevolverPelicula(tituloPelicula);
                     break;
                 case "6":
-                    Console.Write("Introduce el título de la serie que quieres devolver: ");
+                    Console.Write("Introduce el título de la serie que queres devolver: ");
                     tituloSerie = Console.ReadLine();
                     gestor.DevolverSerie(tituloSerie);
                     break;
@@ -63,7 +63,7 @@ class Program
                     break;
                 case "9":
                     gestor.GuardarDatosEnArchivo();
-                    Console.WriteLine("Datos guardados. Gracias por usar el Video Club. ¡Hasta luego!");
+                    Console.WriteLine("Datos guardados. Gracias por venir. Vuelva Pronto");
                     salir = true;
                     break;
                 default:
@@ -121,3 +121,6 @@ class Program
         gestor.AgregarSerie(nuevaSerie);
     }
 }
+//Aca tenemos el menu que usaria el usuario
+//Ademas que estan los metodos para cargar las peliculas
+//De aca salen las interfaces y las implementaciones

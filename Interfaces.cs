@@ -1,4 +1,4 @@
-﻿//La interface seria es "QUE" vamos a usar del Contructor
+﻿//La interface seria es "QUE" vamos a usar del Contructor//Program.cs
 
 using VideoClubApp;
 

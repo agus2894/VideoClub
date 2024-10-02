@@ -18,8 +18,8 @@ namespace VideoClubApp.Implementaciones
             series = new List<Serie>();
         }
 
-        // Métodos para agregar películas y series
-        public void AgregarPelicula(Pelicula pelicula)
+        public void AgregarPelicula(Pelicula pelicula)  // Métodos para agregar películas y series
+
         {
             peliculas.Add(pelicula);
         }
@@ -29,8 +29,8 @@ namespace VideoClubApp.Implementaciones
             series.Add(serie);
         }
 
-        // Métodos para listar
-        public void ListarPeliculas()
+        public void ListarPeliculas()                    // Métodos para listar
+
         {
             Console.WriteLine("\nPelículas en stock:");
             foreach (var pelicula in peliculas)
@@ -48,8 +48,7 @@ namespace VideoClubApp.Implementaciones
             }
         }
 
-        // Métodos para alquilar y devolver
-        public void AlquilarPelicula(string titulo)
+        public void AlquilarPelicula(string titulo)     // Métodos para alquilar y devolver
         {
             var pelicula = peliculas.FirstOrDefault(p => p.Titulo == titulo);
             if (pelicula != null && pelicula.CantidadStock > 0)
@@ -97,8 +96,8 @@ namespace VideoClubApp.Implementaciones
             }
         }
 
-        // Guardar datos en archivo JSON
-        public void GuardarDatosEnArchivo()
+        public void GuardarDatosEnArchivo()                 // Guardar datos en archivo JSON
+
         {
             var datos = new
             {
@@ -110,8 +109,8 @@ namespace VideoClubApp.Implementaciones
             File.WriteAllText(archivoJson, jsonString);
         }
 
-        // Cargar datos desde archivo JSON
-        public void CargarDatosDesdeArchivo()
+        public void CargarDatosDesdeArchivo()               // Cargar datos desde archivo JSON
+
         {
             if (File.Exists(archivoJson))
             {
@@ -124,3 +123,7 @@ namespace VideoClubApp.Implementaciones
         }
     }
 }
+
+//Esta Class es EL COMO del programa. Como se comportan nuestros Objetos
+//Usamos JSON para que se vaya guardo la informacion de las peliculas y series
+//Asi el usuario no tiene que estar iniciando todo desde cero

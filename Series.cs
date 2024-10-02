@@ -26,3 +26,5 @@ public class Serie
         NumeroEpisodios = numeroEpisodios;
     }
 }
+//La Clase series se creo para usar el concepto de Herencia.
+//Serie hereda de pelicula. Nuestro primer objeto
