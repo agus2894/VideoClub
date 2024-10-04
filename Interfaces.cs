@@ -1,7 +1,8 @@
 ﻿//La interface seria es "QUE" vamos a usar del Contructor//Program.cs
 
-using VideoClubApp;
+using implementaciones;
 using pelicula;
+using Pelicula = pelicula.Pelicula;
 
 public interface IVideoClubManager
 {

@@ -1,7 +1,8 @@
 ﻿using System;
-using VideoClubApp.Implementaciones;
+using implementaciones;
+using pelicula;
 
-namespace program
+namespace contructor
 {
     class Program
     {
