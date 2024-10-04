@@ -15,4 +15,3 @@ public interface IVideoClubManager
 //en el sistema del videoclub. Este enfoque permite la flexibilidad para cambiar
 //la implementación de las operaciones del videoclub sin afectar al resto del sistema,
 //ya que todas las interacciones se realizan a través de esta interfaz.
-

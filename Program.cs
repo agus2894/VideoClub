@@ -1,5 +1,4 @@
 ﻿using System;
-using pelicula;
 using VideoClubApp.Implementaciones;
 
 class Program
