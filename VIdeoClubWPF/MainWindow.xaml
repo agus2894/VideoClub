@@ -1,15 +1,21 @@
-﻿<Window x:Class="VideoClubApp.MainWindow"
+﻿<Window x:Class="VideoClubWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VideoClub CUDI" Height="460" Width="900">
-    <Grid Background="#FF353333">
-        <Button Content="Listar Peliculas" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Height="39" Width="210" Click="Button_Click_ListarPeliculas" Background="#FF28122F" Foreground="White" />
-        <Button Content="Listar Series" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Height="39" Width="210" Click="Button_Click_ListarSeries" Background="#FF28122F" Foreground="White" />
-        <Button Content="Alquilar Peliculas" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Height="39" Width="210" Click="Button_Click_AlquilarPeliculas" Background="#FF28122F" Foreground="White" />
-        <Button Content="Devolver Peliculas" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Height="39" Width="210" Click="Button_Click_DevolverPeliculas" Background="#FF28122F" Foreground="White" />
-        <Button Content="Agregar Peliculas" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Height="39" Width="210" Click="Button_Click_AgregarPeliculas" Background="#FF28122F" Foreground="White" />
-        <Button Content="Guardar y Salir" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Height="39" Width="210" Click="Button_Click_GuardarSalir" Background="#FF28122F" Foreground="White" />
+        Title="VideoClub" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <TextBlock Text="VideoClub" FontSize="48" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
+        <!-- Menú lateral básico -->
+        <StackPanel Background="#3E3E3E" Grid.Column="0" VerticalAlignment="Top">
+            <Button Content="Página 1" Name="btnPagina1" Margin="10" Click="btnPagina1_Click"/>
+            <Button Content="Página 2" Name="btnPagina2" Margin="10" Click="btnPagina2_Click"/>
+            <Button Content="Salir" Name="btnSalir" Margin="10" Click="btnSalir_Click"/>
+        </StackPanel>
+
+        <!-- Área de contenido para navegar entre páginas -->
+        <Frame Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

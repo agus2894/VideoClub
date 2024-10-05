@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace VIdeoClubWPF
+namespace VideoClubWPF
 {
     /// <summary>
     /// Interaction logic for App.xaml

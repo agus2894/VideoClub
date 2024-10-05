@@ -76,6 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementaciones.cs" />
+    <Compile Include="Pagina1.xaml.cs">
+      <DependentUpon>Pagina1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina2.xaml.cs">
+      <DependentUpon>Pagina2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pelicula.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="Program.cs" />
@@ -85,6 +91,16 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Pagina1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pagina2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
