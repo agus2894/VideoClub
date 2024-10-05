@@ -1,8 +1,7 @@
-﻿using System.Text.Json;
-using System.IO;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
+using System.Text.Json; // Asegúrate de incluir el namespace correcto para tus modelos
 
 namespace VideoClubApp.Implementaciones
 {
@@ -10,120 +9,75 @@ namespace VideoClubApp.Implementaciones
     {
         private List<Pelicula> peliculas;
         private List<Serie> series;
-        private const string archivoJson = "videoclub.json";
 
         public VideoClubManager()
         {
             peliculas = new List<Pelicula>();
             series = new List<Serie>();
+            CargarDatosDesdeArchivo(); // Cargar datos al iniciar
         }
 
-        public void AgregarPelicula(Pelicula pelicula)  // Métodos para agregar películas y series
-
+        public bool GuardarDatosEnArchivo()
         {
-            peliculas.Add(pelicula);
-        }
-
-        public void AgregarSerie(Serie serie)
-        {
-            series.Add(serie);
-        }
-
-        public void ListarPeliculas()                    // Métodos para listar
-
-        {
-            Console.WriteLine("\nPelículas en stock:");
-            foreach (var pelicula in peliculas)
+            try
             {
-                Console.WriteLine($"- {pelicula.Titulo} ({pelicula.CantidadStock} en stock)");
+                // Serializa las listas a JSON
+                string jsonPeliculas = JsonSerializer.Serialize(peliculas);
+                string jsonSeries = JsonSerializer.Serialize(series);
+
+                File.WriteAllText("peliculas.json", jsonPeliculas);
+                File.WriteAllText("series.json", jsonSeries);
+
+                return true; // Retornar true si el guardado fue exitoso
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al guardar los datos: " + ex.Message);
+                return false; // Retornar false si hubo un error
             }
         }
 
-        public void ListarSeries()
+        public bool CargarDatosDesdeArchivo()
         {
-            Console.WriteLine("\nSeries en stock:");
-            foreach (var serie in series)
+            try
             {
-                Console.WriteLine($"- {serie.Titulo} ({serie.CantidadStock} en stock)");
+                // Cargar películas
+                if (File.Exists("peliculas.json"))
+                {
+                    string jsonPeliculas = File.ReadAllText("peliculas.json");
+                    peliculas = JsonSerializer.Deserialize<List<Pelicula>>(jsonPeliculas) ?? new List<Pelicula>();
+                }
+
+                // Cargar series
+                if (File.Exists("series.json"))
+                {
+                    string jsonSeries = File.ReadAllText("series.json");
+                    series = JsonSerializer.Deserialize<List<Serie>>(jsonSeries) ?? new List<Serie>();
+                }
+
+                return true; // Retornar true si la carga fue exitosa
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al cargar los datos: " + ex.Message);
+                return false; // Retornar false si hubo un error
             }
         }
 
-        public void AlquilarPelicula(string titulo)     // Métodos para alquilar y devolver
+        // Aquí irían otros métodos para agregar, alquilar, devolver, etc.
+        // ...
+
+        public List<Pelicula> ObtenerPeliculas()
         {
-            var pelicula = peliculas.FirstOrDefault(p => p.Titulo == titulo);
-            if (pelicula != null && pelicula.CantidadStock > 0)
-            {
-                pelicula.CantidadStock--;
-                Console.WriteLine($"Has alquilado {pelicula.Titulo}");
-            }
-            else
-            {
-                Console.WriteLine("Película no disponible.");
-            }
+            return peliculas;
         }
 
-        public void AlquilarSerie(string titulo)
+        public List<Serie> ObtenerSeries()
         {
-            var serie = series.FirstOrDefault(s => s.Titulo == titulo);
-            if (serie != null && serie.CantidadStock > 0)
-            {
-                serie.CantidadStock--;
-                Console.WriteLine($"Has alquilado {serie.Titulo}");
-            }
-            else
-            {
-                Console.WriteLine("Serie no disponible.");
-            }
+            return series;
         }
 
-        public void DevolverPelicula(string titulo)
-        {
-            var pelicula = peliculas.FirstOrDefault(p => p.Titulo == titulo);
-            if (pelicula != null)
-            {
-                pelicula.CantidadStock++;
-                Console.WriteLine($"Has devuelto {pelicula.Titulo}");
-            }
-        }
-
-        public void DevolverSerie(string titulo)
-        {
-            var serie = series.FirstOrDefault(s => s.Titulo == titulo);
-            if (serie != null)
-            {
-                serie.CantidadStock++;
-                Console.WriteLine($"Has devuelto {serie.Titulo}");
-            }
-        }
-
-        public void GuardarDatosEnArchivo()                 // Guardar datos en archivo JSON
-
-        {
-            var datos = new
-            {
-                peliculas = peliculas,
-                series = series
-            };
-
-            string jsonString = JsonSerializer.Serialize(datos, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(archivoJson, jsonString);
-        }
-
-        public void CargarDatosDesdeArchivo()               // Cargar datos desde archivo JSON
-
-        {
-            if (File.Exists(archivoJson))
-            {
-                string jsonString = File.ReadAllText(archivoJson);
-                var datos = JsonSerializer.Deserialize<Dictionary<string, List<dynamic>>>(jsonString);
-
-                peliculas = JsonSerializer.Deserialize<List<Pelicula>>(JsonSerializer.Serialize(datos["peliculas"]));
-                series = JsonSerializer.Deserialize<List<Serie>>(JsonSerializer.Serialize(datos["series"]));
-            }
-        }
+        // Métodos para agregar películas y series, alquilar, devolver, etc.
+        // ...
     }
 }
-
-//Esta Class es EL COMO del programa. Como se comportan nuestros Objetos
-//Usamos JSON para que se vaya guardo la informacion de las peliculas y series
-//Asi el usuario no tiene que estar iniciando todo desde cero
