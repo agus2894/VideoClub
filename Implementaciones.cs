@@ -137,5 +137,17 @@ namespace VideoClubApp.Implementaciones
             series.Add(serie);
             return true; // Serie agregada exitosamente
         }
+
+        // Obtiene la lista de películas
+        public List<Pelicula> ObtenerPeliculas()
+        {
+            return peliculas; // Retorna la lista de películas
+        }
+
+        // Obtiene la lista de series
+        public List<Serie> ObtenerSeries()
+        {
+            return series; // Retorna la lista de series
+        }
     }
 }
