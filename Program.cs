@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Contructor;
+using System;
 using VideoClubApp.Implementaciones;
-using Contructor;
 class Program
 {
     static void Main(string[] args)
