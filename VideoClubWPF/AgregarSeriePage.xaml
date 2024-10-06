@@ -30,6 +30,5 @@
         <Label>Número de Episodios:</Label>
         <TextBox x:Name="EpisodiosTextBox" />
 
-        <Button Content="Agregar Serie" Click="AgregarSerieButton_Click" />
     </StackPanel>
 </Window>
