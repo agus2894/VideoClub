@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using Contructor;
+using System.Windows;
 using System.Windows.Controls;
 using VideoClubApp.Implementaciones;
-
 namespace VideoClubWPF
 {
     public partial class AlquilarPelicula : Page

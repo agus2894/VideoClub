@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using VideoClubApp.Implementaciones; // Asegúrate de incluir este namespace
+using VideoClubApp.Implementaciones;
 using VideoClubWPF;
 namespace VideoClubApp
 {

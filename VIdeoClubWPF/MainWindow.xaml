@@ -4,21 +4,21 @@
         Title="Video Club" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="648" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Background="#f0f0f0">
-            <Button Content="Listar Películas" Click="ListarPeliculasButton_Click" />
-            <Button Content="Listar Series" Click="ListarSeriesButton_Click" />
-            <Button Content="Alquilar Película" Click="AlquilarPeliculaButton_Click" />
-            <Button Content="Alquilar Serie" Click="AlquilarSerieButton_Click" />
-            <Button Content="Devolver Película" Click="DevolverPeliculaButton_Click" />
-            <Button Content="Devolver Serie" Click="DevolverSerieButton_Click" />
-            <Button Content="Agregar Película" Click="AgregarPeliculaButton_Click" />
-            <Button Content="Agregar Serie" Click="AgregarSerieButton_Click" />
+        <StackPanel Grid.Column="0" Background="#f0f0f0" Margin="0,0,3,0">
+            <Button Content="Listar Películas" Click="ListarPeliculasButton_Click" Height="39" />
+            <Button Content="Listar Series" Click="ListarSeriesButton_Click" Height="40" />
+            <Button Content="Alquilar Película" Click="AlquilarPeliculaButton_Click" Height="40" />
+            <Button Content="Alquilar Serie" Click="AlquilarSerieButton_Click" Height="40" />
+            <Button Content="Devolver Película" Click="DevolverPeliculaButton_Click" Height="40" />
+            <Button Content="Devolver Serie" Click="DevolverSerieButton_Click" Height="40" />
+            <Button Content="Agregar Película" Click="AgregarPeliculaButton_Click" Height="39" />
+            <Button Content="Agregar Serie" Click="AgregarSerieButton_Click" Height="40" />
         </StackPanel>
 
-        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="253,0,-101,0" />
     </Grid>
 </Window>
