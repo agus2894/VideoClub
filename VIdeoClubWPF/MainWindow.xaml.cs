@@ -1,67 +1,56 @@
 ﻿using System.Windows;
-using VideoClubApp.Implementaciones;
-
-namespace VideoClubWPF
+using VideoClubApp.Implementaciones; // Asegúrate de incluir este namespace
+using VideoClubWPF;
+namespace VideoClubApp
 {
     public partial class MainWindow : Window
     {
-        private VideoClubManager gestor; // Declara la variable gestor
+        private VideoClubManager videoClubManager;
 
         public MainWindow()
         {
             InitializeComponent();
-            gestor = new VideoClubManager(); // Inicializa la variable gestor
+            videoClubManager = new VideoClubManager(); // Inicializa tu manager
         }
 
-        private void btnListarPeliculas_Click(object sender, RoutedEventArgs e)
+        private void ListarPeliculasButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListarPeliculasPage());
+            MainFrame.Navigate(new ListarPeliculas(videoClubManager)); // Carga la página ListarPeliculas
         }
 
-        private void btnListarSeries_Click(object sender, RoutedEventArgs e)
+        private void ListarSeriesButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListarSeriesPage());
+            MainFrame.Navigate(new ListarSeries(videoClubManager)); // Carga la página ListarSeries
         }
 
-        private void btnAlquilarPelicula_Click(object sender, RoutedEventArgs e)
+        private void AlquilarPeliculaButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AlquilarPeliculaPage());
+            MainFrame.Navigate(new AlquilarPelicula(videoClubManager)); // Carga la página AlquilarPelicula
         }
 
-        private void btnAlquilarSerie_Click(object sender, RoutedEventArgs e)
+        private void AlquilarSerieButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AlquilarSeriePage());
+            MainFrame.Navigate(new AlquilarSerie(videoClubManager)); // Carga la página AlquilarSerie
         }
 
-        private void btnDevolverPelicula_Click(object sender, RoutedEventArgs e)
+        private void DevolverPeliculaButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new DevolverPeliculaPage());
+            MainFrame.Navigate(new DevolverPelicula(videoClubManager)); // Carga la página DevolverPelicula
         }
 
-        private void GuardarYSalir_Click(object sender, RoutedEventArgs e)
+        private void DevolverSerieButton_Click(object sender, RoutedEventArgs e)
         {
-            gestor.GuardarDatosEnArchivo();  // Guarda los datos
-            Application.Current.Shutdown();    // Cierra la aplicación
+            MainFrame.Navigate(new DevolverSerie(videoClubManager)); // Carga la página DevolverSerie
         }
 
-        private void btnDevolverSerie_Click(object sender, RoutedEventArgs e)
+        private void AgregarPeliculaButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new DevolverSeriePage());
+            MainFrame.Navigate(new AgregarPelicula(videoClubManager)); // Carga la página AgregarPelicula
         }
 
-        private void btnAgregarPelicula_Click(object sender, RoutedEventArgs e)
+        private void AgregarSerieButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AgregarPeliculaPage());
-        }
-
-        private void btnAgregarSerie_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new AgregarSeriePage());
-        }
-
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
+            MainFrame.Navigate(new AgregarSerie(videoClubManager)); // Carga la página AgregarSerie
         }
     }
 }

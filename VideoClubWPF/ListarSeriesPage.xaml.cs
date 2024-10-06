@@ -1,15 +1,23 @@
 ﻿using System.Windows.Controls;
+using VideoClubApp.Implementaciones;
 
 namespace VideoClubWPF
 {
-    /// <summary>
-    /// Lógica de interacción para ListarSeriesPage.xaml
-    /// </summary>
-    public partial class ListarSeriesPage : Page
+    public partial class ListarSeries : Page
     {
-        public ListarSeriesPage()
+        private VideoClubManager videoClubManager;
+
+        public ListarSeries(VideoClubManager manager)
         {
             InitializeComponent();
+            videoClubManager = manager;
+            CargarSeries();
+        }
+
+        private void CargarSeries()
+        {
+            var series = videoClubManager.ObtenerSeries(); // Obtiene la lista de series desde el manager
+            SeriesListBox.ItemsSource = series; // Enlaza la lista de series con el control ListBox
         }
     }
 }

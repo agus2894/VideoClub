@@ -1,33 +1,35 @@
-﻿<Page x:Class="VideoClubWPF.AgregarPeliculaPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="Agregar Película">
-    <Grid Margin="10">
-        <TextBlock Text="Agregar Nueva Película" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+﻿<Window x:Class="VideoClubApp.AgregarPelicula"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Agregar Película" Height="400" Width="300">
+    <StackPanel Margin="20">
+        <Label>Título:</Label>
+        <TextBox x:Name="TituloTextBox" />
 
-        <TextBlock Text="Título:" Margin="0,10,0,5"/>
-        <TextBox Name="TituloTextBox" Width="300" Margin="0,5,0,0"/>
+        <Label>Actor Principal:</Label>
+        <TextBox x:Name="ActorPrincipalTextBox" />
 
-        <TextBlock Text="Actor Principal:" Margin="0,40,0,5"/>
-        <TextBox Name="ActorTextBox" Width="300" Margin="0,5,0,0"/>
+        <Label>Director:</Label>
+        <TextBox x:Name="DirectorTextBox" />
 
-        <TextBlock Text="Director:" Margin="0,70,0,5"/>
-        <TextBox Name="DirectorTextBox" Width="300" Margin="0,5,0,0"/>
+        <Label>Género:</Label>
+        <TextBox x:Name="GeneroTextBox" />
 
-        <TextBlock Text="Género:" Margin="0,100,0,5"/>
-        <TextBox Name="GeneroTextBox" Width="300" Margin="0,5,0,0"/>
+        <Label>Duración (min):</Label>
+        <TextBox x:Name="DuracionTextBox" />
 
-        <TextBlock Text="Duración (en minutos):" Margin="0,130,0,5"/>
-        <TextBox Name="DuracionTextBox" Width="300" Margin="0,5,0,0"/>
+        <Label>Cantidad Stock:</Label>
+        <TextBox x:Name="StockTextBox" />
 
-        <TextBlock Text="Cantidad en stock:" Margin="0,160,0,5"/>
-        <TextBox Name="CantidadStockTextBox" Width="300" Margin="0,5,0,0"/>
+        <Label>Precio Alquiler:</Label>
+        <TextBox x:Name="PrecioTextBox" />
 
-        <TextBlock Text="Precio de alquiler:" Margin="0,190,0,5"/>
-        <TextBox Name="PrecioAlquilerTextBox" Width="300" Margin="0,5,0,0"/>
+        <Label>Fecha de Ingreso:</Label>
+        <DatePicker x:Name="FechaIngresoPicker" />
 
-        <Button Content="Agregar Película" Width="120" Height="30" Margin="0,230,0,0" Click="AgregarPeliculaButton_Click"/>
+        <Label>Número de Episodios:</Label>
+        <TextBox x:Name="EpisodiosTextBox" />
 
-        <TextBlock Name="ResultadoTextBlock" Margin="0,270,0,0" FontWeight="Bold" Foreground="Green"/>
-    </Grid>
-</Page>
+        <Button Content="Agregar Película" Click="AgregarPeliculaButton_Click" />
+    </StackPanel>
+</Window>

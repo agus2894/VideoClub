@@ -1,31 +1,24 @@
-﻿<Window x:Class="VideoClubWPF.MainWindow"
+﻿<Window x:Class="VideoClubApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VideoClub" Height="450" Width="800">
+        Title="Video Club" Height="450" Width="800">
     <Grid>
-        <!-- Definimos dos columnas: una para el menú lateral y otra para la página de contenido -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Menú lateral -->
-        <StackPanel Background="#333333" Grid.Column="0" HorizontalAlignment="Stretch">
-            <TextBlock Text="VideoClub Menu" Foreground="White" FontSize="20" Margin="10"/>
-
-            <Button Content="Listar Películas" Name="btnListarPeliculas" Margin="10" Click="btnListarPeliculas_Click"/>
-            <Button Content="Listar Series" Name="btnListarSeries" Margin="10" Click="btnListarSeries_Click"/>
-            <Button Content="Alquilar Película" Name="btnAlquilarPelicula" Margin="10" Click="btnAlquilarPelicula_Click"/>
-            <Button Content="Alquilar Serie" Name="btnAlquilarSerie" Margin="10" Click="btnAlquilarSerie_Click"/>
-            <Button Content="Devolver Película" Name="btnDevolverPelicula" Margin="10" Click="btnDevolverPelicula_Click"/>
-            <Button Content="Devolver Serie" Name="btnDevolverSerie" Margin="10" Click="btnDevolverSerie_Click"/>
-            <Button Content="Agregar Película" Name="btnAgregarPelicula" Margin="10" Click="btnAgregarPelicula_Click"/>
-            <Button Content="Agregar Serie" Name="btnAgregarSerie" Margin="10" Click="btnAgregarSerie_Click"/>
-            <Button Content="Guardar y Salir" Width="150" Click="GuardarYSalir_Click"/>
-
+        <StackPanel Grid.Column="0" Background="#f0f0f0">
+            <Button Content="Listar Películas" Click="ListarPeliculasButton_Click" />
+            <Button Content="Listar Series" Click="ListarSeriesButton_Click" />
+            <Button Content="Alquilar Película" Click="AlquilarPeliculaButton_Click" />
+            <Button Content="Alquilar Serie" Click="AlquilarSerieButton_Click" />
+            <Button Content="Devolver Película" Click="DevolverPeliculaButton_Click" />
+            <Button Content="Devolver Serie" Click="DevolverSerieButton_Click" />
+            <Button Content="Agregar Película" Click="AgregarPeliculaButton_Click" />
+            <Button Content="Agregar Serie" Click="AgregarSerieButton_Click" />
         </StackPanel>
 
-        <!-- Aquí se mostrarán las páginas correspondientes -->
-        <Frame Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
