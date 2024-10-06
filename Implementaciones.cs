@@ -20,8 +20,7 @@ namespace VideoClubApp.Implementaciones
             CargarDatosDesdeArchivo(); // Carga datos al inicializar
         }
 
-        // Carga datos desde archivos JSON
-        public void CargarDatosDesdeArchivo()
+        public void CargarDatosDesdeArchivo()        // Carga datos desde archivos JSON
         {
             if (File.Exists(PeliculasFilePath))
             {
@@ -36,8 +35,7 @@ namespace VideoClubApp.Implementaciones
             }
         }
 
-        // Guarda datos en archivos JSON
-        public void GuardarDatosEnArchivo()
+        public void GuardarDatosEnArchivo()        // Guarda datos en archivos JSON
         {
             var peliculasJson = JsonSerializer.Serialize(peliculas);
             File.WriteAllText(PeliculasFilePath, peliculasJson);
@@ -46,8 +44,8 @@ namespace VideoClubApp.Implementaciones
             File.WriteAllText(SeriesFilePath, seriesJson);
         }
 
-        // Lista todas las películas
-        public void ListarPeliculas()
+        
+        public void ListarPeliculas()   // Lista todas las películas
         {
             if (peliculas.Count == 0)
             {
@@ -57,12 +55,11 @@ namespace VideoClubApp.Implementaciones
 
             foreach (var pelicula in peliculas)
             {
-                Console.WriteLine(pelicula.ToString()); // Asegúrate de que Pelicula tenga un ToString() definido
+                Console.WriteLine(pelicula.ToString()); 
             }
         }
 
-        // Lista todas las series
-        public void ListarSeries()
+        public void ListarSeries()        // Lista todas las series
         {
             if (series.Count == 0)
             {
@@ -72,12 +69,11 @@ namespace VideoClubApp.Implementaciones
 
             foreach (var serie in series)
             {
-                Console.WriteLine(serie.ToString()); // Asegúrate de que Serie tenga un ToString() definido
+                Console.WriteLine(serie.ToString()); 
             }
         }
 
-        // Alquila una película
-        public bool AlquilarPelicula(string titulo)
+        public bool AlquilarPelicula(string titulo)        // Alquila una película
         {
             var pelicula = peliculas.Find(p => p.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase));
             if (pelicula != null && pelicula.CantidadStock > 0)
@@ -88,8 +84,7 @@ namespace VideoClubApp.Implementaciones
             return false; // Alquiler fallido
         }
 
-        // Alquila una serie
-        public bool AlquilarSerie(string titulo)
+        public bool AlquilarSerie(string titulo)        // Alquila una serie
         {
             var serie = series.Find(s => s.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase));
             if (serie != null && serie.CantidadStock > 0)
@@ -100,8 +95,8 @@ namespace VideoClubApp.Implementaciones
             return false; // Alquiler fallido
         }
 
-        // Devuelve una película
-        public bool DevolverPelicula(string titulo)
+        public bool DevolverPelicula(string titulo)        // Devuelve una película
+
         {
             var pelicula = peliculas.Find(p => p.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase));
             if (pelicula != null)
@@ -112,8 +107,7 @@ namespace VideoClubApp.Implementaciones
             return false; // Devolución fallida
         }
 
-        // Devuelve una serie
-        public bool DevolverSerie(string titulo)
+        public bool DevolverSerie(string titulo)        // Devuelve una serie
         {
             var serie = series.Find(s => s.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase));
             if (serie != null)
@@ -124,28 +118,24 @@ namespace VideoClubApp.Implementaciones
             return false; // Devolución fallida
         }
 
-        // Agrega una nueva película
-        public bool AgregarPelicula(Pelicula pelicula)
+        public bool AgregarPelicula(Pelicula pelicula)        // Agrega una nueva película
         {
             peliculas.Add(pelicula);
             return true; // Película agregada exitosamente
         }
 
-        // Agrega una nueva serie
-        public bool AgregarSerie(Serie serie)
+        public bool AgregarSerie(Serie serie)        // Agrega una nueva serie
         {
             series.Add(serie);
             return true; // Serie agregada exitosamente
         }
 
-        // Obtiene la lista de películas
-        public List<Pelicula> ObtenerPeliculas()
+        public List<Pelicula> ObtenerPeliculas()        // Obtiene la lista de películas
         {
             return peliculas; // Retorna la lista de películas
         }
 
-        // Obtiene la lista de series
-        public List<Serie> ObtenerSeries()
+        public List<Serie> ObtenerSeries()        // Obtiene la lista de series
         {
             return series; // Retorna la lista de series
         }
