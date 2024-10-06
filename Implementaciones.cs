@@ -44,33 +44,33 @@ namespace VideoClubApp.Implementaciones
             File.WriteAllText(SeriesFilePath, seriesJson);
         }
 
-        
-        public void ListarPeliculas()   // Lista todas las películas
+
+        public List<Pelicula> ListarPeliculas()   // Lista todas las películas
         {
+            List<Pelicula> listaDePeliculas = ObtenerPeliculas();
             if (peliculas.Count == 0)
             {
                 Console.WriteLine("No hay películas disponibles.");
-                return;
             }
-
-            foreach (var pelicula in peliculas)
-            {
-                Console.WriteLine(pelicula.ToString()); 
-            }
+            return listaDePeliculas;
+        }
+        private List<Pelicula> ObtenerPeliculasDesdeConsola()
+        {
+            return new List<Pelicula>();
         }
 
-        public void ListarSeries()        // Lista todas las series
+        public List<Serie> ListarSeries()        // Lista todas las series
         {
+            List<Serie> listadeSerie = ObtenerSeries();
             if (series.Count == 0)
             {
                 Console.WriteLine("No hay series disponibles.");
-                return;
             }
-
-            foreach (var serie in series)
-            {
-                Console.WriteLine(serie.ToString()); 
-            }
+            return listadeSerie;
+        }
+        private List<Serie> ObtenerSeriesDesdeConsola()
+        {
+            return new List<Serie>();
         }
 
         public bool AlquilarPelicula(string titulo)        // Alquila una película
