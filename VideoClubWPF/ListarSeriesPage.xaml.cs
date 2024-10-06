@@ -12,8 +12,7 @@ namespace VideoClubWPF
             InitializeComponent();
             videoClubManager = manager;
 
-            // Cargar las series al iniciar la página
-            CargarSeries();
+            CargarSeries();            // Cargar las series al iniciar la página
         }
 
         private void CargarSeries()
