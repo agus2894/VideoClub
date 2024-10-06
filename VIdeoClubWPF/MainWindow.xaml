@@ -1,18 +1,12 @@
-﻿<Window x:Class="VideoClubApp.MainWindow"
+﻿<Window x:Class="VideoCLubWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Video Club" Height="500" Width="900">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VideoCLubWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="122*"/>
-            <ColumnDefinition Width="679*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="2">
-            <Button Click="ListarPeliculasButton_Click" Height="74">Listar Películas</Button>
-            <Button Click="ListarSeriesButton_Click" Height="87">Listar Series</Button>
-            <Button Content="Agregar Película" Click="AgregarPeliculaButton_Click" Height="87"/>
-            <Button Click="AgregarSerieButton_Click" Height="104">Agregar Serie</Button>
-            <Frame x:Name="MainFrame" />
-        </StackPanel>
+
     </Grid>
 </Window>

@@ -1,38 +1,24 @@
-﻿using System.Windows;
-using VideoClubWPF;
-using VideoClubApp.Implementaciones;
-using VideoCluWPF;
+﻿using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace VideoClubApp
+namespace VideoCLubWPF
 {
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
-        private VideoClubManager videoClubManager;
-
         public MainWindow()
         {
             InitializeComponent();
-            videoClubManager = new VideoClubManager(); // Inicializa el VideoClubManager
-        }
-
-        private void AgregarPeliculaButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new AgregarPelicula(videoClubManager));
-        }
-
-        private void AgregarSerieButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new AgregarSerie(videoClubManager));
-        }
-
-        private void ListarPeliculasButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new ListarPeliculas(videoClubManager));
-        }
-
-        private void ListarSeriesButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new ListarSeries(videoClubManager));
         }
     }
 }
