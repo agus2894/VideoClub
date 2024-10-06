@@ -3,22 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Video Club" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="648" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
-        <StackPanel Grid.Column="0" Background="#f0f0f0" Margin="0,0,3,0">
-            <Button Content="Listar Películas" Click="ListarPeliculasButton_Click" Height="39" />
-            <Button Content="Listar Series" Click="ListarSeriesButton_Click" Height="40" />
-            <Button Content="Alquilar Película" Click="AlquilarPeliculaButton_Click" Height="40" />
-            <Button Content="Alquilar Serie" Click="AlquilarSerieButton_Click" Height="40" />
-            <Button Content="Devolver Película" Click="DevolverPeliculaButton_Click" Height="40" />
-            <Button Content="Devolver Serie" Click="DevolverSerieButton_Click" Height="40" />
-            <Button Content="Agregar Película" Click="AgregarPeliculaButton_Click" Height="39" />
-            <Button Content="Agregar Serie" Click="AgregarSerieButton_Click" Height="40" />
+        <StackPanel>
+            <Button Click="ListarPeliculasButton_Click">Listar Películas</Button>
+            <Button Click="ListarSeriesButton_Click">Listar Series</Button>
+            <Button Click="AlquilarPeliculaButton_Click">Alquilar Película</Button>
+            <Button Click="AlquilarSerieButton_Click">Alquilar Serie</Button>
+            <Button Click="DevolverPeliculaButton_Click">Devolver Película</Button>
+            <Button Click="DevolverSerieButton_Click">Devolver Serie</Button>
+            <Button Click="AgregarPeliculaButton_Click">Agregar Película</Button>
+            <Button Click="AgregarSerieButton_Click">Agregar Serie</Button>
+            <Frame x:Name="MainFrame" />
         </StackPanel>
-
-        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="253,0,-101,0" />
     </Grid>
 </Window>

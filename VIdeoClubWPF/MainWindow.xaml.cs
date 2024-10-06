@@ -1,56 +1,53 @@
 ﻿using System.Windows;
-using VideoClubApp.Implementaciones;
 using VideoClubWPF;
+
 namespace VideoClubApp
 {
     public partial class MainWindow : Window
     {
-        private VideoClubManager videoClubManager;
-
         public MainWindow()
         {
             InitializeComponent();
-            videoClubManager = new VideoClubManager(); // Inicializa tu manager
         }
 
         private void ListarPeliculasButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListarPeliculas(videoClubManager)); // Carga la página ListarPeliculas
+            MainFrame.Navigate(new ListarPeliculas("Esta es la página para listar películas."));
         }
 
         private void ListarSeriesButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListarSeries(videoClubManager)); // Carga la página ListarSeries
+            MainFrame.Navigate(new ListarSeries("Esta es la página para listar series."));
         }
 
         private void AlquilarPeliculaButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AlquilarPelicula(videoClubManager)); // Carga la página AlquilarPelicula
+            MainFrame.Navigate(new AlquilarPelicula("Esta es la página para alquilar una película."));
         }
 
         private void AlquilarSerieButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AlquilarSerie(videoClubManager)); // Carga la página AlquilarSerie
+            MainFrame.Navigate(new AlquilarSerie("Esta es la página para alquilar una serie."));
         }
 
         private void DevolverPeliculaButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new DevolverPelicula(videoClubManager)); // Carga la página DevolverPelicula
+            MainFrame.Navigate(new DevolverPelicula("Esta es la página para devolver una película."));
         }
 
         private void DevolverSerieButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new DevolverSerie(videoClubManager)); // Carga la página DevolverSerie
+            MainFrame.Navigate(new DevolverSerie("Esta es la página para devolver una serie."));
         }
 
         private void AgregarPeliculaButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AgregarPelicula(videoClubManager)); // Carga la página AgregarPelicula
+            MainFrame.Navigate(new AgregarPelicula("Esta es la página para agregar una película."));
         }
 
         private void AgregarSerieButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AgregarSerie(videoClubManager)); // Carga la página AgregarSerie
+            MainFrame.Navigate(new AgregarSerie("Esta es la página para agregar una serie."));
         }
     }
 }

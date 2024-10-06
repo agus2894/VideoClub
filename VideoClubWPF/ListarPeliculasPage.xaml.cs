@@ -1,39 +1,16 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using VideoClubApp.Implementaciones; // Asegúrate de incluir el namespace correcto
+﻿using System.Windows.Controls;
 
 namespace VideoClubWPF
 {
     public partial class ListarPeliculas : Page
     {
-        private VideoClubManager videoClubManager;
+        public string Message { get; set; }
 
-        public ListarPeliculas()
+        public ListarPeliculas(string message)
         {
             InitializeComponent();
-            this.videoClubManager = new VideoClubManager(); // Instancia de VideoClubManager
-            CargarPeliculas();
-        }
-
-        public ListarPeliculas(VideoClubManager videoClubManager)
-        {
-            this.videoClubManager = videoClubManager;
-        }
-
-        private void CargarPeliculas()
-        {
-            var peliculas = videoClubManager.ObtenerPeliculas(); // Obtiene la lista de películas
-            if (peliculas != null && peliculas.Count > 0)
-            {
-                foreach (var pelicula in peliculas)
-                {
-                    listBoxPeliculas.Items.Add(pelicula.Titulo); // Agrega el título de la película al ListBox
-                }
-            }
-            else
-            {
-                MessageBox.Show("No hay películas disponibles.");
-            }
+            Message = message;
+            DataContext = this; // Establece el contexto de datos
         }
     }
 }
