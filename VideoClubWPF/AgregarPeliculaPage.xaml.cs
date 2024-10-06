@@ -1,21 +1,39 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using VideoClubApp.Implementaciones;
 
 namespace VideoClubWPF
 {
-    public partial class AgregarPelicula : Page
+    public partial class AgregarPeliculas : Page
     {
-        public string Message { get; set; }
+        private VideoClubManager videoClubManager;
 
-        public AgregarPelicula(string message)
+        public AgregarPeliculas(VideoClubManager manager)
         {
             InitializeComponent();
-            Message = message;
-            DataContext = this; // Establece el contexto de datos
+            videoClubManager = manager;
         }
 
-        private void InitializeComponent()
+        private void AgregarPelicula_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string titulo = TituloTextBox.Text;
+                string actorPrincipal = ActorPrincipalTextBox.Text;
+                string director = DirectorTextBox.Text;
+                string genero = GeneroTextBox.Text;
+                int duracion = int.Parse(DuracionTextBox.Text);
+                int cantidadStock = int.Parse(CantidadStockTextBox.Text);
+                double precioAlquiler = double.Parse(PrecioAlquilerTextBox.Text);
+
+                // Llama al método de VideoClubManager para agregar la película
+                videoClubManager.AgregarPelicula(titulo, actorPrincipal, director, genero, duracion, cantidadStock, precioAlquiler);
+                MessageBox.Show("Película agregada exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al agregar la película: {ex.Message}");
+            }
         }
     }
 }

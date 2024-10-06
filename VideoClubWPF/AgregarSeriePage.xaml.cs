@@ -1,21 +1,40 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using VideoClubApp.Implementaciones;
 
 namespace VideoClubWPF
 {
-    public partial class AgregarSerie : Page
+    public partial class AgregarSeries : Page
     {
-        public string Message { get; set; }
+        private VideoClubManager videoClubManager;
 
-        public AgregarSerie(string message)
+        public AgregarSeries(VideoClubManager manager)
         {
             InitializeComponent();
-            Message = message;
-            DataContext = this; // Establece el contexto de datos
+            videoClubManager = manager;
         }
 
-        private void InitializeComponent()
+        private void AgregarSerie_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string titulo = TituloTextBox.Text;
+                string actorPrincipal = ActorPrincipalTextBox.Text;
+                string director = DirectorTextBox.Text;
+                string genero = GeneroTextBox.Text;
+                int duracion = int.Parse(DuracionTextBox.Text);
+                int cantidadStock = int.Parse(CantidadStockTextBox.Text);
+                double precioAlquiler = double.Parse(PrecioAlquilerTextBox.Text);
+                int numeroEpisodios = int.Parse(NumeroEpisodiosTextBox.Text);
+
+                // Llama al método de VideoClubManager para agregar la serie
+                videoClubManager.AgregarSerie(titulo, actorPrincipal, director, genero, duracion, cantidadStock, precioAlquiler, numeroEpisodios);
+                MessageBox.Show("Serie agregada exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al agregar la serie: {ex.Message}");
+            }
         }
     }
 }

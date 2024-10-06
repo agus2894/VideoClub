@@ -1,16 +1,25 @@
 ﻿using System.Windows.Controls;
+using VideoClubApp.Implementaciones;
 
 namespace VideoClubWPF
 {
     public partial class ListarPeliculas : Page
     {
-        public string Message { get; set; }
+        private VideoClubManager videoClubManager;
 
-        public ListarPeliculas(string message)
+        public ListarPeliculas(VideoClubManager manager)
         {
             InitializeComponent();
-            Message = message;
-            DataContext = this; // Establece el contexto de datos
+            videoClubManager = manager;
+
+            // Cargar las películas al iniciar la página
+            CargarPeliculas();
+        }
+
+        private void CargarPeliculas()
+        {
+            var peliculas = videoClubManager.ListarPeliculas();
+            PeliculasListBox.ItemsSource = peliculas;
         }
     }
 }

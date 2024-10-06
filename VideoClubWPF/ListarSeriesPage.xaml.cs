@@ -1,16 +1,25 @@
 ﻿using System.Windows.Controls;
+using VideoClubApp.Implementaciones;
 
 namespace VideoClubWPF
 {
     public partial class ListarSeries : Page
     {
-        public string Message { get; set; }
+        private VideoClubManager videoClubManager;
 
-        public ListarSeries(string message)
+        public ListarSeries(VideoClubManager manager)
         {
             InitializeComponent();
-            Message = message;
-            DataContext = this; // Establece el contexto de datos
+            videoClubManager = manager;
+
+            // Cargar las series al iniciar la página
+            CargarSeries();
+        }
+
+        private void CargarSeries()
+        {
+            var series = videoClubManager.ListarSeries();
+            SeriesListBox.ItemsSource = series;
         }
     }
 }
