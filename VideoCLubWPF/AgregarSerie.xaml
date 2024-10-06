@@ -1,0 +1,8 @@
+﻿<Page x:Class="VideoClubWPF.AgregarSerie"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Agregar Película">
+    <Grid>
+        <TextBlock Text="Agregar Película" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+    </Grid>
+</Page>
