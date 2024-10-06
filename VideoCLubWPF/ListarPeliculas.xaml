@@ -1,8 +1,9 @@
-﻿<Page x:Class="VideoClubWPF.ListarPeliculas"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="Agregar Película">
-    <Grid>
-        <TextBlock Text="Agregar Película" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-    </Grid>
-</Page>
+﻿<Window x:Class="VideoClubWPF.ListarPeliculas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Listar Películas" Height="400" Width="300">
+    <StackPanel Margin="20">
+        <TextBlock Text="Listar Películas" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+        <ListBox x:Name="PeliculasListBox"/>
+    </StackPanel>
+</Window>
