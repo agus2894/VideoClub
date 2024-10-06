@@ -6,7 +6,7 @@
         <StackPanel>
             <Button Click="ListarPeliculasButton_Click" Height="74">Listar Películas</Button>
             <Button Click="ListarSeriesButton_Click" Height="87">Listar Series</Button>
-            <Button Click="AgregarPeliculaButton_Click" Height="80">Agregar Película</Button>
+            <Button Content="Agregar Película" Click="AgregarPeliculaButton_Click"/>
             <Button Click="AgregarSerieButton_Click" Height="104">Agregar Serie</Button>
             <Frame x:Name="MainFrame" />
         </StackPanel>

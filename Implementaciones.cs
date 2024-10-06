@@ -149,5 +149,10 @@ namespace VideoClubApp.Implementaciones
         {
             return series; // Retorna la lista de series
         }
+
+        public void AgregarPelicula(string titulo, string actorPrincipal, string director, string genero, int duracion, int cantidadStock, double precioAlquiler, DateTime fechaIngreso)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

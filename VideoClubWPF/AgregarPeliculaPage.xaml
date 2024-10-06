@@ -1,7 +1,7 @@
 ﻿<Window x:Class="VideoCluWPF.AgregarPelicula"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Agregar Serie" Height="400" Width="300">
+        Title="Agregar Pelicula" Height="400" Width="300">
     <StackPanel Margin="20">
         <Label>Título:</Label>
         <TextBox x:Name="TituloTextBox" />
@@ -26,9 +26,6 @@
 
         <Label>Fecha de Ingreso:</Label>
         <DatePicker x:Name="FechaIngresoPicker" />
-
-        <Label>Número de Episodios:</Label>
-        <TextBox x:Name="EpisodiosTextBox" />
 
     </StackPanel>
 </Window>
