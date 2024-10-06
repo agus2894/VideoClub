@@ -17,10 +17,10 @@ namespace VideoClubApp.Implementaciones
         {
             peliculas = new List<Pelicula>();
             series = new List<Serie>();
-            CargarDatosDesdeArchivo(); // Carga datos al inicializar
+            CargarDatosDesdeArchivo(); // Carga datos al Empezar
         }
 
-        public void CargarDatosDesdeArchivo()        // Carga datos desde archivos JSON
+        public void CargarDatosDesdeArchivo()        // Carga datos desde JSON
         {
             if (File.Exists(PeliculasFilePath))
             {
@@ -35,7 +35,7 @@ namespace VideoClubApp.Implementaciones
             }
         }
 
-        public void GuardarDatosEnArchivo()        // Guarda datos en archivos JSON
+        public void GuardarDatosEnArchivo()        // Guarda datos en JSON
         {
             var peliculasJson = JsonSerializer.Serialize(peliculas);
             File.WriteAllText(PeliculasFilePath, peliculasJson);
@@ -130,17 +130,22 @@ namespace VideoClubApp.Implementaciones
             return true; // Serie agregada exitosamente
         }
 
-        public List<Pelicula> ObtenerPeliculas()        // Obtiene la lista de películas
+        public List<Pelicula> ObtenerPeliculas()        // De da la lista de películas
         {
-            return peliculas; // Retorna la lista de películas
+            return peliculas; 
         }
 
-        public List<Serie> ObtenerSeries()        // Obtiene la lista de series
+        public List<Serie> ObtenerSeries()        // Te da la lista de series
         {
-            return series; // Retorna la lista de series
+            return series;
         }
 
         public void AgregarPelicula(string titulo, string actorPrincipal, string director, string genero, int duracion, int cantidadStock, double precioAlquiler, DateTime fechaIngreso)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AgregarSerie(string titulo, string actorPrincipal, string director, string genero, int duracion, int cantidadStock, double precioAlquiler, DateTime fechaIngreso, int numeroEpisodios)
         {
             throw new NotImplementedException();
         }

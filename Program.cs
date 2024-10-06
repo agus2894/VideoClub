@@ -9,9 +9,9 @@ class Program
 
         gestor.CargarDatosDesdeArchivo();               // Cargamos los datos al iniciar el programa
 
-        // Menú interactivo para el usuario
+        
+        bool salir = false;                             // Menú interactivo para el usuario
 
-        bool salir = false;
         while (!salir)
         {
             Console.WriteLine("\n===== Bienvenido al VideoCLub EL CUDI =====");
@@ -36,22 +36,22 @@ class Program
                     gestor.ListarSeries();
                     break;
                 case "3":
-                    Console.Write("Introduce el título de la película que queres alquilar: ");
+                    Console.Write("Titulo de la pelicula que queres alquilar: ");
                     string tituloPelicula = Console.ReadLine();
                     gestor.AlquilarPelicula(tituloPelicula);
                     break;
                 case "4":
-                    Console.Write("Introduce el título de la serie que queres alquilar: ");
+                    Console.Write("Titulo de la serie que queres alquilar: ");
                     string tituloSerie = Console.ReadLine();
                     gestor.AlquilarSerie(tituloSerie);
                     break;
                 case "5":
-                    Console.Write("Introduce el título de la película que queres devolver: ");
+                    Console.Write("Titulo de la pelicula que queres devolver: ");
                     tituloPelicula = Console.ReadLine();
                     gestor.DevolverPelicula(tituloPelicula);
                     break;
                 case "6":
-                    Console.Write("Introduce el título de la serie que queres devolver: ");
+                    Console.Write("Titulo de la serie que queres devolver: ");
                     tituloSerie = Console.ReadLine();
                     gestor.DevolverSerie(tituloSerie);
                     break;
@@ -67,7 +67,7 @@ class Program
                     salir = true;
                     break;
                 default:
-                    Console.WriteLine("Opción no válida. Por favor, intenta de nuevo.");
+                    Console.WriteLine("Opcion no Valida. Por favor, intenta de nuevo.");
                     break;
             }
         }
@@ -75,16 +75,16 @@ class Program
 
     static void AgregarNuevaPelicula(VideoClubManager gestor)
     {
-        Console.WriteLine("Agregar nueva película:");
-        Console.Write("Título: ");
+        Console.WriteLine("Agregar nueva pelicula:");
+        Console.Write("Titulo: ");
         string titulo = Console.ReadLine();
         Console.Write("Actor Principal: ");
         string actor = Console.ReadLine();
         Console.Write("Director: ");
         string director = Console.ReadLine();
-        Console.Write("Género: ");
+        Console.Write("Genero: ");
         string genero = Console.ReadLine();
-        Console.Write("Duración (en minutos): ");
+        Console.Write("Duracion (en minutos): ");
         int duracion = int.Parse(Console.ReadLine());
         Console.Write("Cantidad en stock: ");
         int cantidadStock = int.Parse(Console.ReadLine());
@@ -99,21 +99,21 @@ class Program
     static void AgregarNuevaSerie(VideoClubManager gestor)
     {
         Console.WriteLine("Agregar nueva serie:");
-        Console.Write("Título: ");
+        Console.Write("Titulo: ");
         string titulo = Console.ReadLine();
         Console.Write("Actor Principal: ");
         string actor = Console.ReadLine();
         Console.Write("Director: ");
         string director = Console.ReadLine();
-        Console.Write("Género: ");
+        Console.Write("Genero: ");
         string genero = Console.ReadLine();
-        Console.Write("Duración (en minutos): ");
+        Console.Write("Duracion (en minutos): ");
         int duracion = int.Parse(Console.ReadLine());
         Console.Write("Cantidad en stock: ");
         int cantidadStock = int.Parse(Console.ReadLine());
         Console.Write("Precio de alquiler: ");
         decimal precioAlquiler = decimal.Parse(Console.ReadLine());
-        Console.Write("Número de episodios: ");
+        Console.Write("Numero de episodios: ");
         int numEpisodios = int.Parse(Console.ReadLine());
         DateTime fechaIngreso = DateTime.Now;
 

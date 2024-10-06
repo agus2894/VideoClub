@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using VideoClubWPF;
 using VideoClubApp.Implementaciones;
+using VideoCluWPF;
 
 namespace VideoClubApp
 {
@@ -16,12 +17,12 @@ namespace VideoClubApp
 
         private void AgregarPeliculaButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AgregarPeliculas(videoClubManager));
+            MainFrame.Navigate(new AgregarPelicula(videoClubManager));
         }
 
         private void AgregarSerieButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AgregarSeries(videoClubManager));
+            MainFrame.Navigate(new AgregarSerie(videoClubManager));
         }
 
         private void ListarPeliculasButton_Click(object sender, RoutedEventArgs e)
