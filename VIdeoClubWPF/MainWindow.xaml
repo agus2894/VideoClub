@@ -1,23 +1,34 @@
 ﻿<Window x:Class="VideoClubWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VideoClub - Menú Principal" Height="350" Width="400">
+        Title="VideoClub - Menú Principal" Height="350" Width="600" Background="LightBlue">
     <Grid>
         <DockPanel>
             <!-- Panel de botones en la izquierda -->
-            <StackPanel DockPanel.Dock="Left" Width="150" Background="LightGray" Margin="10">
-                <Button Content="Listar Películas" Width="120" Click="ListarPeliculas_Click"/>
-                <Button Content="Listar Series" Width="120" Click="ListarSeries_Click"/>
-                <Button Content="Alquilar Película" Width="120" Click="AlquilarPelicula_Click"/>
-                <Button Content="Alquilar Serie" Width="120" Click="AlquilarSerie_Click"/>
-                <Button Content="Devolver Película" Width="120" Click="DevolverPelicula_Click"/>
-                <Button Content="Devolver Serie" Width="120" Click="DevolverSerie_Click"/>
-                <Button Content="Agregar Película" Width="120" Click="AgregarPelicula_Click"/>
-                <Button Content="Agregar Serie" Width="120" Click="AgregarSerie_Click"/>
+            <StackPanel DockPanel.Dock="Left" Width="150" Background="#383166" Margin="10">
+                <Button Content="Listar Películas" Width="120" Height="39" FontSize="14" Background="SlateGray" Click="ListarPeliculas_Click" />
+                <Button Content="Listar Series" Width="120" Height="39" FontSize="14" Background="SlateGray" Click="ListarSeries_Click"/>
+                <Button Content="Alquilar Película" Width="120" Height="39" FontSize="14" Background="SlateGray" Click="AlquilarPelicula_Click"/>
+                <Button Content="Alquilar Serie" Width="120" Height="39" FontSize="14" Background="SlateGray" Click="AlquilarSerie_Click"/>
+                <Button Content="Devolver Película" Width="120" Height="39" FontSize="14" Background="SlateGray" Click="DevolverPelicula_Click"/>
+                <Button Content="Devolver Serie" Width="120" Height="39" FontSize="14" Background="SlateGray" Click="DevolverSerie_Click"/>
+                <Button Content="Agregar Película" Width="120" Height="39" FontSize="14" Background="SlateGray" Click="AgregarPelicula_Click"/>
+                <Button Content="Agregar Serie" Width="120" Height="39" FontSize="14" Background="SlateGray" Click="AgregarSerie_Click"/>
             </StackPanel>
 
-            <!-- Panel principal donde se cargan las páginas -->
+            <!-- Panel principal donde se cargan las páginas o se muestra la lista -->
+            <StackPanel DockPanel.Dock="Right" Margin="20" Width="400">
+                <TextBlock Text="Listado de Películas" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+                <ListBox x:Name="PeliculasListBox" Height="200" Width="350" />
+
+                <!-- ListBox para mostrar las películas -->
+            </StackPanel>
+
+            <!-- Frame para cargar las páginas de otras funcionalidades (alquilar, devolver, etc.) -->
             <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>
+
+        <!-- Título principal del VideoClub -->
+        <TextBlock Margin="377,10,0,0" TextWrapping="Wrap" Text="Video Club" Height="56" Width="223" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

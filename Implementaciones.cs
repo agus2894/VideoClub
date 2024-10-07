@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Windows;
 
 namespace VideoClubApp.Implementaciones
 {
@@ -19,21 +20,34 @@ namespace VideoClubApp.Implementaciones
             series = new List<Serie>();
             CargarDatosDesdeArchivo(); // Carga datos al Empezar
         }
-
-        public void CargarDatosDesdeArchivo()        // Carga datos desde JSON
+        public void CargarDatosDesdeArchivo()
         {
-            if (File.Exists(PeliculasFilePath))
+            try
             {
-                var json = File.ReadAllText(PeliculasFilePath);
-                peliculas = JsonSerializer.Deserialize<List<Pelicula>>(json) ?? new List<Pelicula>();
-                Console.WriteLine($"Películas cargadas: {peliculas.Count}");
+                if (File.Exists(PeliculasFilePath))
+                {
+                    var json = File.ReadAllText(PeliculasFilePath);
+                    peliculas = JsonSerializer.Deserialize<List<Pelicula>>(json) ?? new List<Pelicula>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las películas: {ex.Message}");
+                peliculas = new List<Pelicula>(); // Para evitar que quede null
             }
 
-            if (File.Exists(SeriesFilePath))
+            try
             {
-                var json = File.ReadAllText(SeriesFilePath);
-                series = JsonSerializer.Deserialize<List<Serie>>(json) ?? new List<Serie>();
-                Console.WriteLine($"Series cargadas: {series.Count}");
+                if (File.Exists(SeriesFilePath))
+                {
+                    var json = File.ReadAllText(SeriesFilePath);
+                    series = JsonSerializer.Deserialize<List<Serie>>(json) ?? new List<Serie>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las series: {ex.Message}");
+                series = new List<Serie>(); // Para evitar que quede null
             }
         }
 
