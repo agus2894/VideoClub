@@ -1,22 +1,8 @@
-﻿<Window x:Class="VideoClubWPF.AgregarSerie"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Agregar Serie" Height="400" Width="300">
-    <StackPanel Margin="20">
-        <TextBlock Text="Agregar Serie" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
-
-        <Label>Título:</Label>
-        <TextBox x:Name="TituloTextBox" />
-
-        <Label>Actor Principal:</Label>
-        <TextBox x:Name="ActorPrincipalTextBox" />
-
-        <Label>Director:</Label>
-        <TextBox x:Name="DirectorTextBox" />
-
-        <Label>Género:</Label>
-        <TextBox x:Name="GeneroTextBox" />
-
-        <Button Content="Agregar" Click="Agregar_Click" Margin="0,20,0,0"/>
-    </StackPanel>
-</Window>
+﻿<Page x:Class="VideoClubWPF.AgregarSeriePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="AgregarSeriePage">
+    <Grid>
+        <TextBlock Text="Aca se agregan las series..." VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+    </Grid>
+</Page>

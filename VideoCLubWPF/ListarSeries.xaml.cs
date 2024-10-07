@@ -1,16 +1,12 @@
-﻿using System.Windows;
+﻿using System.Windows.Controls;
 
 namespace VideoClubWPF
 {
-    public partial class ListarSeries : Window
+    public partial class ListarSeriesPage : Page
     {
-        public ListarSeries()
+        public ListarSeriesPage()
         {
             InitializeComponent();
-            // Cargar lista de series (esto lo puedes reemplazar con los datos reales)
-            SeriesListBox.Items.Add("Serie 1");
-            SeriesListBox.Items.Add("Serie 2");
-            SeriesListBox.Items.Add("Serie 3");
         }
     }
 }

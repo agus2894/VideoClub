@@ -1,0 +1,8 @@
+﻿<Page x:Class="VideoClubWPF.DevolverPeliculaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="DevolverPeliculaPage">
+    <Grid>
+        <TextBlock Text="Menu para devoluciones de Peliculas..." VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+    </Grid>
+</Page>

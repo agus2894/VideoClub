@@ -1,0 +1,8 @@
+﻿<Page x:Class="VideoClubWPF.AlquilarPeliculaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="AlquilarPeliculaPage">
+    <Grid>
+        <TextBlock Text="Menu para alquilar Peliculas..." VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+    </Grid>
+</Page>

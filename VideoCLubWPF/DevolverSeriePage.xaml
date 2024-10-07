@@ -1,0 +1,8 @@
+﻿<Page x:Class="VideoClubWPF.DevolverSeriePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="DevolverSeriePage">
+    <Grid>
+        <TextBlock Text="Devolucion de Serie..." VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+    </Grid>
+</Page>

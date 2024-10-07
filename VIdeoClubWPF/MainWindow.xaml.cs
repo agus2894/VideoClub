@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using VideoClubWPF; // Asegúrate de que este namespace está correctamente definido
 
 namespace VideoClubWPF
 {
@@ -11,45 +10,44 @@ namespace VideoClubWPF
             InitializeComponent();
         }
 
-        // Manejador para "Agregar Película"
-        private void AgregarPelicula_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new AgregarPelicula()); // Navega a la página AgregarPelicula
-            if (MainFrame.NavigationService.CanGoBack)
-            {
-                MainFrame.NavigationService.RemoveBackEntry();
-            }
-        }
-
-        // Manejador para "Listar Películas"
         private void ListarPeliculas_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListarPeliculas()); // Navega a la página ListarPeliculas
-            if (MainFrame.NavigationService.CanGoBack)
-            {
-                MainFrame.NavigationService.RemoveBackEntry();
-            }
+            MainFrame.Content = new ListarPeliculasPage();
         }
 
-        // Manejador para "Agregar Serie"
-        private void AgregarSerie_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new AgregarSerie()); // Navega a la página AgregarSerie
-            if (MainFrame.NavigationService.CanGoBack)
-            {
-                MainFrame.NavigationService.RemoveBackEntry();
-            }
-        }
-
-        // Manejador para "Listar Series"
         private void ListarSeries_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListarSeries()); // Navega a la página ListarSeries
+            MainFrame.Content = new ListarSeriesPage();
+        }
 
-            if (MainFrame.NavigationService.CanGoBack)
-            {
-                MainFrame.NavigationService.RemoveBackEntry();
-            }
+        private void AlquilarPelicula_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new AlquilarPeliculaPage();
+        }
+
+        private void AlquilarSerie_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new AlquilarSeriePage();
+        }
+
+        private void DevolverPelicula_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new DevolverPeliculaPage();
+        }
+
+        private void DevolverSerie_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new DevolverSeriePage();
+        }
+
+        private void AgregarPelicula_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new AgregarPeliculaPage();
+        }
+
+        private void AgregarSerie_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new AgregarSeriePage();
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace VideoClubWPF
 {
-    public partial class AgregarSeriePage : Page
+    public partial class DevolverPeliculaPage : Page
     {
-        public AgregarSeriePage()
+        public DevolverPeliculaPage()
         {
             InitializeComponent();
         }
